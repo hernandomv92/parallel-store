@@ -51,11 +51,18 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
       let filtered: ProductFromDB[] = [...mockProducts];
 
       if (filters?.category) {
-        filtered = filtered.filter((p) => p.categoria === filters.category);
+        const categoryLower = filters.category.toLowerCase();
+        filtered = filtered.filter(
+          (p) =>
+            p.categoria.toLowerCase() === categoryLower ||
+            p.marca.toLowerCase() === categoryLower
+        );
       }
 
       if (filters?.brands?.length) {
-        filtered = filtered.filter((p) => filters.brands!.includes(p.marca));
+        filtered = filtered.filter((p) =>
+          filters.brands!.includes(p.marca)
+        );
       }
 
       if (filters?.priceRange) {

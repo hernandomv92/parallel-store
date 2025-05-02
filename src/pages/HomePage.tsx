@@ -25,17 +25,17 @@ const HomePage = () => {
             <p className="text-lg md:text-xl mb-8 text-muted">
             Descubre marcas reconocidas a nivel mundial, con autenticidad garantizada, envíos seguros y precios que marcan la diferencia.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3 mt-6 animate-fade-in">
               <Link 
                 to="/catalogo" 
-                className="bg-accent hover:bg-secondary text-white px-6 py-3 rounded-md font-medium transition-colors inline-flex items-center"
+                className="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md font-medium inline-flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-xl hover:ring-2 hover:ring-accent"
               >
                 Ver Catálogo
                 <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link 
                 to="/como-funciona" 
-                className="border border-white hover:border-accent hover:text-accent text-white px-6 py-3 rounded-md font-medium transition-colors"
+                className="bg-transparent border border-white text-white hover:bg-secondary hover:text-white hover:border-transparent px-6 py-3 rounded-md font-medium inline-flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-accent"
               >
                 Cómo Funciona
               </Link>
@@ -45,51 +45,65 @@ const HomePage = () => {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Categorías Destacadas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Deportivos',
-                image: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg',
-                path: '/catalogo/deportivos'
-              },
-              {
-                title: 'Casuales',
-                image: 'https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg',
-                path: '/catalogo/casuales'
-              },
-              {
-                title: 'Lujo',
-                image: 'https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg',
-                path: '/catalogo/lujo'
-              }
-            ].map((category, index) => (
-              <Link 
-                key={index} 
-                to={category.path}
-                className="group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow relative h-80"
-              >
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all z-10" />
-                <img 
-                  src={category.image} 
-                  alt={category.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
-                  <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
-                  <p className="inline-flex items-center text-sm font-medium">
-                    Ver Productos
-                    <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-primary">Categorías Destacadas</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Nike',
+                  image: 'https://i.imgur.com/C8WTLTw.png',
+                  logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg',
+                  path: '/catalogo/nike',
+                },
+                {
+                  title: 'Adidas',
+                  image: 'https://i.imgur.com/pah32qY.jpeg',
+                  logo: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg',
+                  path: '/catalogo/adidas',
+                },
+                {
+                  title: 'Reebok',
+                  image: 'https://i.imgur.com/qlUKm8Z.png',
+                  logo: 'https://i.imgur.com/TeOj3Um.png',
+                  path: '/catalogo/reebok',
+                },
+              ].map((category, index) => (
+                <Link
+                  key={index}
+                  to={category.path}
+                  className="group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 relative h-80"
+                >
+                  {/* Floating logo */}
+                  <img
+                    src={category.logo}
+                    alt={`${category.title} logo`}
+                    className="absolute top-4 left-4 w-12 h-12 z-30 bg-white rounded-full p-1 shadow-md object-contain"
+                  />
 
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300 z-10"></div>
+
+                  {/* Background image */}
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+
+                  {/* Text */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-20">
+                    <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
+                    <p className="inline-flex items-center text-sm font-medium">
+                      Ver Productos
+                      <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300" />
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       {/* Featured Products */}
       <section className="py-16">
         <div className="container mx-auto px-4">

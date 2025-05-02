@@ -32,17 +32,23 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-secondary shadow-md py-2' : 'bg-secondary py-4'
+        isScrolled
+          ? 'bg-white/90 backdrop-blur-md shadow-md py-2 text-primary'
+          : 'bg-transparent py-4 text-white'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center" onClick={closeMenu}>
-            <h1 className="text-2xl font-bold text-white">
-              Parallel Store <span className="text-accent">Co</span>
-            </h1>
+          <h1
+            className={`text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-primary' : 'text-white'
+            }`}
+          >
+            Parallel Store <span className={`${isScrolled ? 'text-accent' : 'text-accent'}`}>Co</span>
+          </h1>
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
@@ -50,10 +56,8 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `font-medium transition-colors duration-300 ${
-                    isActive
-                      ? 'text-blue-300 underline underline-offset-4'
-                      : 'text-white hover:text-blue-300'
+                  `font-medium transition-colors duration-300 hover:text-primary ${
+                    isActive ? 'text-primary font-semibold' : 'text-inherit'
                   }`
                 }
               >
@@ -64,11 +68,11 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-white hover:text-blue-300 transition-colors">
+            <button className="hover:text-primary transition-colors">
               <Search size={20} />
             </button>
             <button
-              className="text-white hover:text-blue-300 relative transition-colors"
+              className="relative hover:text-primary transition-colors"
               onClick={toggleCart}
             >
               <ShoppingBag size={20} />
@@ -83,7 +87,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex items-center space-x-4 md:hidden">
             <button
-              className="text-white hover:text-blue-300 relative transition-colors"
+              className="relative hover:text-accent transition-colors"
               onClick={toggleCart}
             >
               <ShoppingBag size={20} />
@@ -94,7 +98,7 @@ const Navbar = () => {
               )}
             </button>
             <button
-              className="text-white hover:text-blue-300 transition-colors"
+              className="hover:text-accent transition-colors"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -106,7 +110,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-secondary shadow-lg absolute top-full left-0 w-full py-4">
+        <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full py-4 text-primary">
           <nav className="container mx-auto px-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <NavLink
@@ -114,7 +118,7 @@ const Navbar = () => {
                 to={link.path}
                 className={({ isActive }) =>
                   `font-medium py-2 transition-colors duration-200 ${
-                    isActive ? 'text-accent font-semibold underline underline-offset-4' : 'text-white hover:text-blue-300'
+                    isActive ? 'text-primary font-semibold' : 'hover:text-primary'
                   }`
                 }
                 onClick={closeMenu}
@@ -122,7 +126,7 @@ const Navbar = () => {
                 {link.title}
               </NavLink>
             ))}
-            <button className="flex items-center space-x-2 py-2 text-white hover:text-blue-300 transition-colors">
+            <button className="flex items-center space-x-2 py-2 hover:text-primary transition-colors">
               <Search size={20} />
               <span>Buscar</span>
             </button>
