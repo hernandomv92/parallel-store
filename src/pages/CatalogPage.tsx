@@ -56,10 +56,10 @@ const CatalogPage = () => {
   return (
     <div className="pt-20 pb-16 bg-background text-primary font-sans">
       {/* Header con fondo destacado */}
-      <div className="bg-[#0F3460] text-white py-12 shadow-lg">
+      <div className="bg-primary text-white py-12 shadow-lg">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold">{categoryTitle}</h1>
-          <p className="mt-2 text-gray-200 text-lg">
+          <p className="mt-2 text-muted text-lg">
             Encuentra los mejores zapatos importados desde Estados Unidos
           </p>
         </div>
@@ -69,7 +69,7 @@ const CatalogPage = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Botón móvil para mostrar filtros */}
           <button
-            className="md:hidden flex items-center justify-between w-full bg-white p-4 rounded-xl shadow hover:shadow-md border border-gray-200 transition-all"
+            className="md:hidden flex items-center justify-between w-full bg-white p-4 rounded-xl shadow hover:shadow-md border border-muted transition-all"
             onClick={toggleFilters}
           >
             <span className="font-medium">Filtros</span>
@@ -91,18 +91,18 @@ const CatalogPage = () => {
           {/* Contenido principal */}
           <div className="md:w-3/4">
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-700 font-medium">
+              <p className="text-muted font-medium">
                 Mostrando <strong>{products.length}</strong> productos
               </p>
               <div className="flex items-center">
-                <label htmlFor="sort" className="text-gray-600 mr-2 font-medium">
+                <label htmlFor="sort" className="text-muted mr-2 font-medium">
                   Ordenar por:
                 </label>
                 <select
                   id="sort"
                   value={sortBy}
                   onChange={handleSortChange}
-                  className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E94560]"
+                  className="border border-muted rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   <option value="default">Destacados</option>
                   <option value="price-asc">Precio: Menor a Mayor</option>
@@ -118,16 +118,16 @@ const CatalogPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[...Array(6)].map((_, index) => (
                   <div key={index} className="bg-white rounded-xl shadow-md p-4 animate-pulse">
-                    <div className="bg-gray-300 h-64 rounded-lg mb-4"></div>
-                    <div className="h-4 bg-gray-300 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-2/3 mb-4"></div>
-                    <div className="h-8 bg-gray-300 rounded"></div>
+                    <div className="bg-muted h-64 rounded-lg mb-4"></div>
+                    <div className="h-4 bg-muted rounded mb-2"></div>
+                    <div className="h-4 bg-muted rounded w-2/3 mb-4"></div>
+                    <div className="h-8 bg-muted rounded"></div>
                   </div>
                 ))}
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-16">
-                <p className="text-lg text-gray-600 mb-4">
+                <p className="text-lg text-muted mb-4">
                   No se encontraron productos que coincidan con tus filtros.
                 </p>
                 <button
