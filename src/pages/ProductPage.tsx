@@ -24,10 +24,10 @@ const ProductPage = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const loadProduct = async () => {
+    const loadProduct = () => {
       if (id) {
         setLoading(true);
-        const fetchedProduct = await getProductById(id);
+        const fetchedProduct = getProductById(id); // ✅ CORRECTO
         setProduct(fetchedProduct);
         setLoading(false);
       }

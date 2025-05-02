@@ -1,7 +1,13 @@
 import { createContext, useState, useContext, ReactNode, useCallback } from 'react';
-import { Product } from '../types/Product';
 
-interface CartItem extends Product {
+interface CartItem {
+  id: string;
+  name: string;
+  brand: string;
+  price: number;
+  category: string;
+  images: string[];
+  selectedSize: string;
   quantity: number;
 }
 
@@ -9,7 +15,7 @@ interface ShoppingCartContextType {
   cartItems: CartItem[];
   totalItems: number;
   totalPrice: number;
-  addToCart: (product: Product) => void;
+  addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -34,38 +40,29 @@ interface ShoppingCartProviderProps {
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Calculate total items in cart
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-  // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-  // Add item to cart
-  const addToCart = useCallback((product: Product) => {
+  const addToCart = useCallback((item: CartItem) => {
     setCartItems(prevItems => {
-      // Check if item already exists in cart with same size
       const existingItemIndex = prevItems.findIndex(
-        item => item.id === product.id && item.selectedSize === product.selectedSize
+        p => p.id === item.id && p.selectedSize === item.selectedSize
       );
 
       if (existingItemIndex !== -1) {
-        // If exists, increment quantity
         const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex].quantity += product.quantity || 1;
+        updatedItems[existingItemIndex].quantity += item.quantity;
         return updatedItems;
       } else {
-        // Otherwise add new item
-        return [...prevItems, { ...product, quantity: product.quantity || 1 }];
+        return [...prevItems, item];
       }
     });
   }, []);
 
-  // Remove item from cart
   const removeFromCart = useCallback((id: string) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== id));
   }, []);
 
-  // Update item quantity
   const updateQuantity = useCallback((id: string, quantity: number) => {
     setCartItems(prevItems =>
       prevItems.map(item =>
@@ -74,7 +71,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     );
   }, []);
 
-  // Clear cart
   const clearCart = useCallback(() => {
     setCartItems([]);
   }, []);

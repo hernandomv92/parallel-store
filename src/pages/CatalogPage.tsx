@@ -28,19 +28,19 @@ const CatalogPage = () => {
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(e.target.value);
     const sortedProducts = [...products];
-    
+
     switch (e.target.value) {
       case 'price-asc':
-        sortedProducts.sort((a, b) => a.precio_cop - b.precio_cop);
+        sortedProducts.sort((a, b) => a.price - b.price);
         break;
       case 'price-desc':
-        sortedProducts.sort((a, b) => b.precio_cop - a.precio_cop);
+        sortedProducts.sort((a, b) => b.price - a.price);
         break;
       case 'name-asc':
-        sortedProducts.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'name-desc':
-        sortedProducts.sort((a, b) => b.nombre.localeCompare(a.nombre));
+        sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
         break;
     }
   };
@@ -49,8 +49,8 @@ const CatalogPage = () => {
     setShowFilters(!showFilters);
   };
 
-  const categoryTitle = category 
-    ? category.charAt(0).toUpperCase() + category.slice(1) 
+  const categoryTitle = category
+    ? category.charAt(0).toUpperCase() + category.slice(1)
     : 'Todos los Productos';
 
   return (
@@ -66,39 +66,32 @@ const CatalogPage = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Filters (Mobile Toggle) */}
-          <button 
+          <button
             className="md:hidden flex items-center justify-between w-full bg-white p-4 rounded-lg shadow-sm mb-4"
             onClick={toggleFilters}
           >
             <span className="font-medium">Filtros</span>
-            <ChevronDown 
-              size={20} 
-              className={`transition-transform ${showFilters ? 'rotate-180' : ''}`} 
+            <ChevronDown
+              size={20}
+              className={`transition-transform ${showFilters ? 'rotate-180' : ''}`}
             />
           </button>
 
-          {/* Filters (Sidebar) */}
-          <div 
+          <div
             className={`${
               showFilters ? 'block' : 'hidden'
             } md:block md:w-1/4 bg-white rounded-lg shadow-sm p-4 h-fit`}
           >
-            <ProductFilters 
-              onFilterChange={handleFilterChange}
-              initialCategory={category}
-            />
+            <ProductFilters onFilterChange={handleFilterChange} initialCategory={category} />
           </div>
 
-          {/* Product Grid */}
           <div className="md:w-3/4">
-            {/* Sort Controls */}
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-600">
-                Mostrando {products.length} productos
-              </p>
+              <p className="text-gray-600">Mostrando {products.length} productos</p>
               <div className="flex items-center">
-                <label htmlFor="sort" className="text-gray-600 mr-2">Ordenar por:</label>
+                <label htmlFor="sort" className="text-gray-600 mr-2">
+                  Ordenar por:
+                </label>
                 <select
                   id="sort"
                   value={sortBy}
@@ -127,8 +120,10 @@ const CatalogPage = () => {
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-16">
-                <p className="text-lg text-gray-600 mb-4">No se encontraron productos que coincidan con tus filtros.</p>
-                <button 
+                <p className="text-lg text-gray-600 mb-4">
+                  No se encontraron productos que coincidan con tus filtros.
+                </p>
+                <button
                   onClick={() => handleFilterChange({})}
                   className="text-[#E94560] font-medium hover:underline"
                 >
@@ -137,18 +132,8 @@ const CatalogPage = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.map(product => (
-                  <ProductCard 
-                    key={product.id} 
-                    product={{
-                      id: product.id,
-                      name: product.nombre,
-                      brand: product.marca,
-                      price: product.precio_cop,
-                      category: product.categoria,
-                      images: [product.imagen_url],
-                    }} 
-                  />
+                {products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
                 ))}
               </div>
             )}
