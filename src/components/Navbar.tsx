@@ -42,10 +42,10 @@ const Navbar = () => {
           <Link to="/" className="flex items-center" onClick={closeMenu}>
           <h1
             className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-primary' : 'text-white'
+              isScrolled ? 'text-primary' : 'text-accent'
             }`}
           >
-            Parallel Store <span className={`${isScrolled ? 'text-accent' : 'text-accent'}`}>Co</span>
+            Parallel Store <span className={`${isScrolled ? 'text-accent' : 'text-primary'}`}>Co</span>
           </h1>
           </Link>
           
@@ -68,11 +68,11 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="hover:text-primary transition-colors">
+            <button className="hover:text-accent transition-colors">
               <Search size={20} />
             </button>
             <button
-              className="relative hover:text-primary transition-colors"
+              className="relative hover:text-accent transition-colors"
               onClick={toggleCart}
             >
               <ShoppingBag size={20} />

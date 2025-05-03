@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">
-              Zapatos USA <span className="text-[#E94560]">Colombia</span>
+              Parallel <span className="text-[#E94560]">Store</span>
             </h3>
             <p className="mb-4 text-gray-300">
               Importamos zapatos originales de marcas reconocidas desde Estados Unidos hasta la puerta de tu casa en Colombia.
@@ -50,13 +50,13 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Categorías</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/catalogo/deportivos" className="text-gray-300 hover:text-[#E94560] transition-colors">Deportivos</Link>
+                <Link to="/catalogo/nike" className="text-gray-300 hover:text-[#E94560] transition-colors">Nike</Link>
               </li>
               <li>
-                <Link to="/catalogo/casuales" className="text-gray-300 hover:text-[#E94560] transition-colors">Casuales</Link>
+                <Link to="/catalogo/adidas" className="text-gray-300 hover:text-[#E94560] transition-colors">Adidas</Link>
               </li>
               <li>
-                <Link to="/catalogo/lujo" className="text-gray-300 hover:text-[#E94560] transition-colors">Lujo</Link>
+                <Link to="/catalogo/reebok" className="text-gray-300 hover:text-[#E94560] transition-colors">Reebok</Link>
               </li>
             </ul>
           </div>
@@ -66,22 +66,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="flex-shrink-0 mt-1 text-[#E94560]" />
-                <span className="text-gray-300">Bogotá, Colombia</span>
+                <span className="text-gray-300">Cali, Colombia</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="flex-shrink-0 text-[#E94560]" />
-                <span className="text-gray-300">+57 1234 567890</span>
+                <span className="text-gray-300">+57 3238253871</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="flex-shrink-0 text-[#E94560]" />
-                <span className="text-gray-300">info@zapatosusacolombia.com</span>
+                <span className="text-gray-300">info@parallelstore.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {currentYear} Zapatos USA Colombia. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear} Parallel Store. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

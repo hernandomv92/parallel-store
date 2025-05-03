@@ -58,10 +58,6 @@ const HowItWorksPage = () => {
       answer: 'Sí, todos nuestros productos son 100% originales. Trabajamos directamente con distribuidores autorizados en Estados Unidos y ofrecemos garantía de autenticidad en cada par de zapatos.'
     },
     {
-      question: '¿Qué pasa si el zapato no me queda bien?',
-      answer: 'Ofrecemos un periodo de 30 días para devoluciones. Si el zapato no te queda bien, puedes solicitar un cambio de talla o un reembolso del importe pagado siguiendo nuestro proceso de devoluciones.'
-    },
-    {
       question: '¿Incluye impuestos de importación?',
       answer: 'Sí, el precio que ves en nuestra tienda ya incluye todos los impuestos y aranceles de importación. No tendrás que pagar ningún cargo adicional al recibir tu pedido.'
     },
@@ -213,9 +209,9 @@ const HowItWorksPage = () => {
             </div>
             
             <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-[#E94560] hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-[#0F3460] mb-4">Devoluciones Sencillas</h3>
+              <h3 className="text-xl font-bold text-[#0F3460] mb-4">Compra con Confianza</h3>
               <p className="text-gray-600 mb-4">
-                Dispones de 30 días para devoluciones. Si el producto no te queda bien o no cumple tus expectativas, te ofrecemos cambio o reembolso.
+              Te ayudamos a elegir el producto perfecto antes de tu compra. Nuestro equipo está disponible para resolver tus dudas y asegurarte que lo que pides es exactamente lo que necesitas.
               </p>
               <p className="text-gray-600">
                 Solo debes conservar el embalaje original y todos los accesorios incluidos.

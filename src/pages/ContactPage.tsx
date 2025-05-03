@@ -96,7 +96,7 @@ const ContactPage = () => {
               <h3 className="text-xl font-bold text-[#0F3460] mb-2">Llámanos</h3>
               <p className="text-gray-600 mb-2">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
               <a href="tel:+5712345678" className="text-[#E94560] font-medium hover:underline">
-                +57 1234 567890
+                +57 3238253871
               </a>
             </div>
             
@@ -107,7 +107,7 @@ const ContactPage = () => {
               <h3 className="text-xl font-bold text-[#0F3460] mb-2">Escríbenos</h3>
               <p className="text-gray-600 mb-2">Respondemos en menos de 24 horas</p>
               <a href="mailto:info@zapatosusacolombia.com" className="text-[#E94560] font-medium hover:underline">
-                info@zapatosusacolombia.com
+                info@parallelstore.com
               </a>
             </div>
             
@@ -115,10 +115,10 @@ const ContactPage = () => {
               <div className="w-16 h-16 bg-[#E94560] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
                 <MapPin size={24} className="text-[#E94560]" />
               </div>
-              <h3 className="text-xl font-bold text-[#0F3460] mb-2">Visítanos</h3>
-              <p className="text-gray-600 mb-2">Calle 123 #45-67, Bogotá, Colombia</p>
-              <a href="#" className="text-[#E94560] font-medium hover:underline">
-                Ver en el mapa
+              <h3 className="text-xl font-bold text-[#0F3460] mb-2">Chatea con Nosotros</h3>
+              <p className="text-gray-600 mb-2">Soluciona tus dudas</p>
+              <a href="https://wa.me/573228253871" className="text-[#E94560] font-medium hover:underline">
+                Ir a WhatsApp
               </a>
             </div>
           </div>
@@ -299,24 +299,11 @@ const ContactPage = () => {
               
               <div className="mt-8 text-center">
                 <h3 className="font-medium text-[#0F3460] mb-2">¿No encontraste lo que buscabas?</h3>
-                <a href="#" className="inline-flex items-center text-[#E94560] font-medium hover:underline">
+                <a href="https://wa.me/573228253871" className="inline-flex items-center text-[#E94560] font-medium hover:underline">
                   <MessageCircle size={16} className="mr-1" />
                   Chatea con nosotros
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#0F3460] mb-8 text-center">Nuestra Ubicación</h2>
-          
-          <div className="h-[400px] bg-gray-200 rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-              <p className="text-gray-600">Mapa de ubicación</p>
             </div>
           </div>
         </div>

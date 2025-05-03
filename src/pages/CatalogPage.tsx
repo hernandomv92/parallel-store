@@ -54,48 +54,50 @@ const CatalogPage = () => {
     : 'Todos los Productos';
 
   return (
-    <div className="pt-20 pb-16 bg-background text-primary font-sans">
+    <div className="pt-20 pb-16 bg-white text-primary font-sans">
       {/* Header con fondo destacado */}
-      <div className="bg-primary text-white py-12 shadow-lg">
-        <div className="container mx-auto px-4">
+      <div className="relative text-white py-16 shadow-lg">
+       
+        <div className="absolute inset-0 w-full h-full object-cover bg-primary/90"></div>
+        <div className="relative container mx-auto px-4 z-10">
           <h1 className="text-4xl font-bold">{categoryTitle}</h1>
-          <p className="mt-2 text-muted text-lg">
+          <p className="mt-2 text-gray-200 text-lg">
             Encuentra los mejores zapatos importados desde Estados Unidos
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-10">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Botón móvil para mostrar filtros */}
-          <button
-            className="md:hidden flex items-center justify-between w-full bg-white p-4 rounded-xl shadow hover:shadow-md border border-muted transition-all"
-            onClick={toggleFilters}
-          >
-            <span className="font-medium">Filtros</span>
-            <ChevronDown
-              size={20}
-              className={`transition-transform ${showFilters ? 'rotate-180' : ''}`}
-            />
-          </button>
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Botón móvil para mostrar filtros */}
+        <button
+          className="md:hidden flex items-center justify-between w-full bg-white p-4 rounded-lg shadow border border-gray-200"
+          onClick={toggleFilters}
+        >
+          <span className="font-medium">Filtros</span>
+          <ChevronDown
+            size={20}
+            className={`transition-transform ${showFilters ? 'rotate-180' : ''}`}
+          />
+        </button>
 
-          {/* Filtros laterales */}
-          <div
-            className={`${
-              showFilters ? 'block' : 'hidden'
-            } md:block md:w-1/4 bg-white rounded-xl shadow-lg p-6 h-fit`}
-          >
-            <ProductFilters onFilterChange={handleFilterChange} initialCategory={category} />
-          </div>
+        {/* Filtros laterales */}
+        <div
+          className={`${
+            showFilters ? 'block' : 'hidden'
+          } md:block md:w-1/5 bg-muted/15 rounded-lg shadow-sm p-4 h-fit border border-gray-100`}
+        >
+          <ProductFilters onFilterChange={handleFilterChange} initialCategory={category} />
+        </div>
 
           {/* Contenido principal */}
-          <div className="md:w-3/4">
+          <div className="md:w-4/5">
             <div className="flex justify-between items-center mb-6">
-              <p className="text-muted font-medium">
+              <p className="text-accent font-medium">
                 Mostrando <strong>{products.length}</strong> productos
               </p>
               <div className="flex items-center">
-                <label htmlFor="sort" className="text-muted mr-2 font-medium">
+                <label htmlFor="sort" className="text-accent mr-2 font-medium">
                   Ordenar por:
                 </label>
                 <select
